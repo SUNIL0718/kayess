@@ -1,0 +1,21 @@
+.container {
+  height: 50px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.follow {
+  font-size: 14px;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+.social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon {
+  opacity: 0.6;
+  cursor: pointer;
+}
