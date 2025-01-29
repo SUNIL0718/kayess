@@ -16,7 +16,9 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
-
+main {
+  margin-top: 15vh;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -37,24 +39,17 @@ a {
 }
 
 .container {
-  /* max-width: 1280px; */
   min-height: 100vh;
-  background-color: var(--bg);
+  background-color: #ebe7e79c;
   color: var(--textColor);
-  /* margin: 0 auto;
-  padding: 0 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
 }
 
 .wrapper {
   max-width: 1536px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 80px;
-  padding-right: 80px;
-  /* background-color: blue; */
+  /* padding-left: 80px;
+  padding-right: 80px; */
 }
 
 @media screen and (max-width: 1536px) {
@@ -83,4 +78,25 @@ a {
   .wrapper {
     max-width: 475px;
   }
+}
+
+.whatsapp-float {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 30px;
+  right: 15px;
+  z-index: 100;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.whatsapp-float img:hover {
+  transform: scale(1.1);
 }

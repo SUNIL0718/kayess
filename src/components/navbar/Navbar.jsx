@@ -1,49 +1,29 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import Image from "next/image";
-import logo from "@/public/images/Logo.png";
-import ThemeToggle from "../themeToggle/ThemeToggle";
+import logo from "@/public/images/Kayess.png";
+import { FaBars, FaTimes } from "react-icons/fa"; // Import mobile open/close icons
+// import ThemeToggle from "../themeToggle/ThemeToggle";
 
 const links = [
-  {
-    id: 1,
-    title: "Home",
-    url: "/",
-  },
-  {
-    id: 2,
-    title: "About",
-    url: "/about",
-  },
-  {
-    id: 3,
-    title: "Products",
-    url: "/products",
-  },
-  {
-    id: 4,
-    title: "Certificates",
-    url: "/certificates",
-  },
-  {
-    id: 5,
-    title: "Blog",
-    url: "/blog",
-  },
-  {
-    id: 6,
-    title: "Contact",
-    url: "/contact",
-  },
+  { id: 1, title: "Home", url: "/" },
+  { id: 2, title: "About", url: "/about" },
+  { id: 3, title: "Products", url: "/products" },
+  { id: 4, title: "Certificates", url: "/certificates" },
+  { id: 5, title: "Contact", url: "/contact" },
 ];
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
   return (
     <div className={styles.container}>
-      {/* <Link href="/" className={styles.logo}>
-        KayessInternationals
-      </Link> */}
       <Link href="/" className={styles.logo}>
         <Image
           src={logo}
@@ -54,13 +34,34 @@ const Navbar = () => {
           objectFit="cover"
         />
       </Link>
+
+      {/* Links for large screens (desktop, laptop, tablets) */}
       <div className={styles.links}>
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
         {links.map((link) => (
           <Link key={link.id} href={link.url} className={styles.link}>
             {link.title}
           </Link>
         ))}
+      </div>
+
+      {/* Mobile menu icon */}
+      <div className={styles.mobileMenuIcon} onClick={toggleMenu}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
+      {/* Sidebar for mobile */}
+      <div
+        className={`${styles.sidebar} ${menuOpen ? styles.sidebarOpen : ""}`}
+      >
+        <div className={styles.sidebarLinks}>
+          {/* <ThemeToggle /> */}
+          {links.map((link) => (
+            <Link key={link.id} href={link.url} className={styles.sidebarLink}>
+              {link.title}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

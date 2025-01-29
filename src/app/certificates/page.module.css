@@ -1,0 +1,74 @@
+/* styles/page.module.css */
+.certificateSection {
+  width: 100%;
+  background-color: var(--bg);
+  margin: 20px auto;
+}
+
+.certificateContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--softBg);
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.certificateImage {
+  max-width: 250px;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+}
+
+.certificateContent {
+  flex: 1;
+  text-align: left;
+  color: var(--textColor);
+}
+
+.certificateContent h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.certificateContent p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.certificateContent a {
+  color: #1e88e5;
+  text-decoration: none;
+}
+
+.certificateContent a:hover {
+  text-decoration: underline;
+}
+
+/* Divider Style */
+.divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2rem 0;
+}
+
+/* Tablet and larger screen layouts */
+@media (min-width: 768px) {
+  .certificateContainer {
+    flex-direction: row; /* Arrange image and content side-by-side on tablet and larger screens */
+    align-items: flex-start;
+  }
+
+  .certificateImage {
+    flex-shrink: 0; /* Prevents the image from shrinking */
+    margin-right: 1.5rem; /* Adds spacing between image and content */
+  }
+
+  .certificateContent {
+    flex: 1; /* Ensures content fills remaining space */
+  }
+}
